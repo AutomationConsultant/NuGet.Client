@@ -40,7 +40,7 @@ namespace NuGet.Commands
             CompatibilityProfiles = new HashSet<FrameworkRuntimePair>();
             PackagesDirectory = dependencyProviders.GlobalPackages.RepositoryRoot;
             IsLowercasePackagesDirectory = true;
-
+            ProjectStyle = Project.RestoreMetadata.ProjectStyle; // can this be null?
             // Default to the project folder
             RestoreOutputPath = Path.GetDirectoryName(Project.FilePath);
         }
@@ -143,7 +143,7 @@ namespace NuGet.Commands
         /// <summary>
         /// Defines the paths and behavior for outputs
         /// </summary>
-        public ProjectStyle ProjectStyle { get; set; } = ProjectStyle.Unknown;
+        public ProjectStyle ProjectStyle { get; } = ProjectStyle.Unknown;
 
         /// <summary>
         /// Restore output path

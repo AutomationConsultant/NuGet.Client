@@ -163,10 +163,8 @@ namespace NuGet.Commands
                 clientPolicyContext,
                 restoreArgs.Log)
             {
-                // Set properties from the restore metadata
-                ProjectStyle = project.PackageSpec.RestoreMetadata.ProjectStyle,
                 //  Project.json is special cased to put assets file and generated .props and targets in the project folder
-                RestoreOutputPath = project.PackageSpec.RestoreMetadata.ProjectStyle == ProjectStyle.ProjectJson ? rootPath : project.PackageSpec.RestoreMetadata.OutputPath,
+                RestoreOutputPath = project.PackageSpec.RestoreMetadata.ProjectStyle == ProjectStyle.ProjectJson ? rootPath : project.PackageSpec.RestoreMetadata.OutputPath, // TODO NK - This can also be wired in.
                 DependencyGraphSpec = projectDgSpec,
                 MSBuildProjectExtensionsPath = projectPackageSpec.RestoreMetadata.OutputPath
             };
