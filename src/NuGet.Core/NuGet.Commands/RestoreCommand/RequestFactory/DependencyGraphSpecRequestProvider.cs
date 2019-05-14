@@ -152,8 +152,6 @@ namespace NuGet.Commands
                 sources,
                 restoreArgs.CacheContext,
                 restoreArgs.Log);
-            
-            var rootPath = Path.GetDirectoryName(project.PackageSpec.FilePath);
 
             // Create request
             var request = new RestoreRequest(
@@ -163,10 +161,7 @@ namespace NuGet.Commands
                 clientPolicyContext,
                 restoreArgs.Log)
             {
-                //  Project.json is special cased to put assets file and generated .props and targets in the project folder
-                RestoreOutputPath = project.PackageSpec.RestoreMetadata.ProjectStyle == ProjectStyle.ProjectJson ? rootPath : project.PackageSpec.RestoreMetadata.OutputPath, // TODO NK - This can also be wired in.
-                DependencyGraphSpec = projectDgSpec,
-                MSBuildProjectExtensionsPath = projectPackageSpec.RestoreMetadata.OutputPath
+                DependencyGraphSpec = projectDgSpec
             };
             
             var restoreLegacyPackagesDirectory = project.PackageSpec?.RestoreMetadata?.LegacyPackagesDirectory

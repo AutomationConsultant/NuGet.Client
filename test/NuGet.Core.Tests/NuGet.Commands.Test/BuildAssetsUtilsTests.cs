@@ -699,10 +699,7 @@ namespace NuGet.Commands.Test
                     new NuGetv3LocalRepository(pathContext.UserPackagesFolder)
                 };
 
-                var restoreRequest = new TestRestoreRequest(spec, new[] { new PackageSource(pathContext.PackageSource) }, pathContext.PackagesV2, logger)
-                {
-                    ProjectStyle = spec.RestoreMetadata.ProjectStyle
-                };
+                var restoreRequest = new TestRestoreRequest(spec, new[] { new PackageSource(pathContext.PackageSource) }, pathContext.PackagesV2, logger);
 
                 var assetsFilePath = Path.Combine(randomProjectDirectory, "obj", "project.assets.json");
 
@@ -809,10 +806,7 @@ namespace NuGet.Commands.Test
                     new NuGetv3LocalRepository(pathContext.UserPackagesFolder)
                 };
 
-                var restoreRequest = new TestRestoreRequest(spec, new[] { new PackageSource(pathContext.PackageSource) }, pathContext.PackagesV2, logger)
-                {
-                    ProjectStyle = spec.RestoreMetadata.ProjectStyle
-                };
+                var restoreRequest = new TestRestoreRequest(spec, new[] { new PackageSource(pathContext.PackageSource) }, pathContext.PackagesV2, logger);
 
                 var assetsFilePath = Path.Combine(randomProjectDirectory, "obj", "project.assets.json");
 
