@@ -42,7 +42,7 @@ namespace NuGet.Commands
             IsLowercasePackagesDirectory = true;
             ProjectStyle = Project.RestoreMetadata.ProjectStyle;
             // Project.json is special cased to put assets file and generated .props and targets in the project folder
-            RestoreOutputPath = ProjectStyle == ProjectStyle.ProjectJson
+            RestoreOutputPath = ProjectStyle == ProjectStyle.ProjectJson || Project.RestoreMetadata.OutputPath == null // TODO NK - Not the greatest idea
                 ? Path.GetDirectoryName(Project.FilePath)
                 : Project.RestoreMetadata.OutputPath;
             MSBuildProjectExtensionsPath = Project.RestoreMetadata.OutputPath;
