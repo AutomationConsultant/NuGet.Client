@@ -40,12 +40,13 @@ namespace NuGet.Commands
             CompatibilityProfiles = new HashSet<FrameworkRuntimePair>();
             PackagesDirectory = dependencyProviders.GlobalPackages.RepositoryRoot;
             IsLowercasePackagesDirectory = true;
-            ProjectStyle = Project.RestoreMetadata.ProjectStyle;
+            // TODO NK - The null checks are there for the tests.
+            ProjectStyle = Project.RestoreMetadata?.ProjectStyle ?? ProjectStyle.Unknown;
             // Project.json is special cased to put assets file and generated .props and targets in the project folder
-            RestoreOutputPath = ProjectStyle == ProjectStyle.ProjectJson || Project.RestoreMetadata.OutputPath == null // TODO NK - Not the greatest idea
+            RestoreOutputPath = ProjectStyle == ProjectStyle.ProjectJson || ProjectStyle == ProjectStyle.Unknown
                 ? Path.GetDirectoryName(Project.FilePath)
                 : Project.RestoreMetadata.OutputPath;
-            MSBuildProjectExtensionsPath = Project.RestoreMetadata.OutputPath;
+            MSBuildProjectExtensionsPath = Project.RestoreMetadata?.OutputPath;
         }
 
         public DependencyGraphSpec DependencyGraphSpec { get; set; }
@@ -146,7 +147,7 @@ namespace NuGet.Commands
         /// <summary>
         /// Defines the paths and behavior for outputs
         /// </summary>
-        public ProjectStyle ProjectStyle { get; } = ProjectStyle.Unknown;
+        public ProjectStyle ProjectStyle { get; }
 
         /// <summary>
         /// Restore output path
