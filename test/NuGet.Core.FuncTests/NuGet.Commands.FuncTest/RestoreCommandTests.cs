@@ -157,7 +157,6 @@ namespace NuGet.Commands.FuncTest
                 Directory.CreateDirectory(Path.Combine(projectDir, "ReferencedProject"));
                 var referenceSpecPath = Path.Combine(projectDir, "ReferencedProject", "project.json");
                 var referenceSpec = JsonPackageSpecReader.GetPackageSpec(BasicConfigWithNet46.ToString(), "ReferencedProject", referenceSpecPath);
-                PackageSpecWriter.WriteToFile(referenceSpec, referenceSpecPath);
 
                 var logger = new TestLogger();
                 var request = new TestRestoreRequest(projectSpec, sources, packagesDir, logger);

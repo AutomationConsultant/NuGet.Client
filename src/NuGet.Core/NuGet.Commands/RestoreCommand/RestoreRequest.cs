@@ -40,9 +40,9 @@ namespace NuGet.Commands
             CompatibilityProfiles = new HashSet<FrameworkRuntimePair>();
             PackagesDirectory = dependencyProviders.GlobalPackages.RepositoryRoot;
             IsLowercasePackagesDirectory = true;
-            // TODO NK - The null checks are there for the tests.
             ProjectStyle = Project.RestoreMetadata?.ProjectStyle ?? ProjectStyle.Unknown;
-            // Project.json is special cased to put assets file and generated .props and targets in the project folder
+            // Project.json is special cased to put assets file and generated .props and targets in the project folder.
+            // Unknown is there mostly for test purposes.
             RestoreOutputPath = ProjectStyle == ProjectStyle.ProjectJson || ProjectStyle == ProjectStyle.Unknown
                 ? Path.GetDirectoryName(Project.FilePath)
                 : Project.RestoreMetadata.OutputPath;
