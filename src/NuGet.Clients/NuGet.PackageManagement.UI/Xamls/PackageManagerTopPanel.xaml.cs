@@ -19,8 +19,11 @@ namespace NuGet.PackageManagement.UI
         {
             InitializeComponent();
 
-            _labelBrowse.Selected = true;
+            //_labelBrowse.Selected = true;
             _selectedFilter = _labelBrowse;
+
+            //TabControl tc;
+            //tabBrowse.Style = _labelBrowse.Style;
         }
 
         // the control that is used as container for the search box.
@@ -135,11 +138,11 @@ namespace NuGet.PackageManagement.UI
             switch (selectedFilter)
             {
                 case ItemFilter.All:
-                    _selectedFilter = _labelBrowse;
+                    //_selectedFilter = _labelBrowse;
                     break;
 
                 case ItemFilter.Installed:
-                    _selectedFilter = _labelInstalled;
+                   // _selectedFilter = _labelInstalled;
                     break;
 
                 case ItemFilter.UpdatesAvailable:
@@ -159,12 +162,13 @@ namespace NuGet.PackageManagement.UI
             // can be recognized here.
             if (_selectedFilter == null)
             {
-                _selectedFilter = _labelInstalled;
+               // _selectedFilter = _labelInstalled;
             }
 
-            _selectedFilter.Selected = true;
+            //_selectedFilter.Selected = true;
         }
-    }
+
+        }
 
     public class FilterChangedEventArgs : EventArgs
     {

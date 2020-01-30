@@ -10,12 +10,6 @@
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <nuget:SharedResources/>
-        <ResourceDictionary>
-          <Style BasedOn="{StaticResource {x:Type nuget:FilterLabel}}"
-                 TargetType="TabItem">
-            <Setter Property="Background" Value="Aqua"></Setter>
-          </Style>
-        </ResourceDictionary>
       </ResourceDictionary.MergedDictionaries>
       <BitmapImage
         x:Key="BitmapImage_Refresh"
@@ -35,8 +29,8 @@
         <ColumnDefinition Width="*" MinWidth="20"/>
       </Grid.ColumnDefinitions>
  
-      <TabControl>
-          <TabItem>
+      <TabControl x:Name="tabControlPmui" IsSynchronizedWithCurrentItem="False">
+        <TabItem Name="tabBrowse" AutomationProperties.Name="{x:Static nuget:Resources.Label_Browse}">
           <TabItem.Header>
             <nuget:FilterLabel
             Grid.Column="0"
@@ -44,10 +38,11 @@
             AutomationProperties.AutomationId="Tab_Browse"
             Filter="All"
             Text="{x:Static nuget:Resources.Label_Browse}"
-            ControlSelected="FilterLabel_ControlSelected" />
+            ControlSelected="FilterLabel_ControlSelected"
+            Focusable="False" />
           </TabItem.Header>
         </TabItem>
-      <TabItem>
+        <TabItem AutomationProperties.Name="{x:Static nuget:Resources.Label_Installed}">
           <TabItem.Header>
             <nuget:FilterLabel
         Grid.Column="1"
@@ -60,7 +55,7 @@
             </nuget:FilterLabel>
           </TabItem.Header>
         </TabItem>
-      <TabItem>
+        <TabItem AutomationProperties.Name="{x:Static nuget:Resources.Label_Updates}">
           <TabItem.Header>
             <nuget:FilterLabel
             Grid.Column="2"

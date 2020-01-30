@@ -21,7 +21,7 @@
       <RowDefinition Height="auto" />
       <RowDefinition Height="auto" />
     </Grid.RowDefinitions>
-    <nuget:TabItemButton x:Name="_labelButton"
+    <!--<nuget:TabItemButton x:Name="_labelButton"
       Grid.Row="0"
       Click="ButtonClicked"
       AutomationProperties.AutomationId="{Binding ElementName=_labelText, Path=Text}"
@@ -37,7 +37,7 @@
         <ControlTemplate TargetType="{x:Type Button}">
           <ContentPresenter />
         </ControlTemplate>
-      </nuget:TabItemButton.Template>
+      </nuget:TabItemButton.Template>-->
       <StackPanel Orientation="Horizontal">
         <TextBlock
           x:Name="_labelText"
@@ -76,7 +76,7 @@
             VerticalAlignment="Center"
             Moniker="{x:Static catalog:KnownMonikers.StatusWarning}" />
       </StackPanel>
-    </nuget:TabItemButton>
+    <!--</nuget:TabItemButton>-->
 
     <!-- the line under the text to indicate that this label is selected -->
     <Rectangle
