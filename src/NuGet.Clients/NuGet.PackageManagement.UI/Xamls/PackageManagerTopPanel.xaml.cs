@@ -168,7 +168,11 @@ namespace NuGet.PackageManagement.UI
             //_selectedFilter.Selected = true;
         }
 
+        private void TabsPackageManagement_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FilterLabel_ControlSelected(sender, e);
         }
+    }
 
     public class FilterChangedEventArgs : EventArgs
     {

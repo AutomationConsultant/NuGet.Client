@@ -28,8 +28,8 @@
         <ColumnDefinition Width="auto" />
         <ColumnDefinition Width="*" MinWidth="20"/>
       </Grid.ColumnDefinitions>
- 
-      <TabControl x:Name="tabControlPmui" IsSynchronizedWithCurrentItem="False">
+
+      <TabControl x:Name="tabsPackageManagement" IsSynchronizedWithCurrentItem="False" SelectionChanged="TabsPackageManagement_SelectionChanged">
         <TabItem Name="tabBrowse" AutomationProperties.Name="{x:Static nuget:Resources.Label_Browse}">
           <TabItem.Header>
             <nuget:FilterLabel
@@ -38,7 +38,6 @@
             AutomationProperties.AutomationId="Tab_Browse"
             Filter="All"
             Text="{x:Static nuget:Resources.Label_Browse}"
-            ControlSelected="FilterLabel_ControlSelected"
             Focusable="False" />
           </TabItem.Header>
         </TabItem>
@@ -50,8 +49,7 @@
         AutomationProperties.AutomationId="Tab_Installed"
         Filter="Installed"
         Margin="35,0,0,0"
-        Text="{x:Static nuget:Resources.Label_Installed}"
-        ControlSelected="FilterLabel_ControlSelected">
+        Text="{x:Static nuget:Resources.Label_Installed}">
             </nuget:FilterLabel>
           </TabItem.Header>
         </TabItem>
@@ -63,8 +61,7 @@
             AutomationProperties.AutomationId="Tab_Updates"
             Filter="UpdatesAvailable"
             Margin="35,0,0,0"
-            Text="{x:Static nuget:Resources.Label_Updates}"
-            ControlSelected="FilterLabel_ControlSelected">
+            Text="{x:Static nuget:Resources.Label_Updates}">
             </nuget:FilterLabel>
           </TabItem.Header>
         </TabItem>
@@ -77,7 +74,6 @@
             Filter="Consolidate"
             Margin="35,0,0,0"
             Text="{x:Static nuget:Resources.Action_Consolidate}"
-            ControlSelected="FilterLabel_ControlSelected"
             Visibility="Collapsed" />
           </TabItem.Header>
         </TabItem>
